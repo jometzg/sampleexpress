@@ -4,8 +4,14 @@ const http = require('http');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
-  http.get('http://172.16.0.4', (resp) => {
+
+/* GET outbound IP details */
+router.get('/test', function(req, res, next) {
+
+  http.get('http://ifconfig.co', (resp) => {
     let data = '';
 
     // A chunk of data has been received.
